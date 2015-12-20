@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles bootstrap3 %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-5 col-md-offset-2">
+            <h3>- sms-центр</h3>
+            <form id="form_0" action="/some-api/message/" method="post" class="form-horizontal">
+                {% csrf_token %}
+                {% bootstrap_form form layout='horizontal' %}
+                {% buttons %}
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-primary">
+                            {% bootstrap_icon "star" %} Submit
+                        </button>
+                    </div>
+                {% endbuttons %}
+            </form>
+            <br/>
+            <div id="result_form_0"></div>
+            <br/><br/>
+            <h3>- sms-траффик</h3>
+            <form id="form_1" action="/super-api/message/" method="post" class="form-horizontal">
+                {% csrf_token %}
+                {% bootstrap_form form layout='horizontal' %}
+                {% buttons %}
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-primary">
+                            {% bootstrap_icon "star" %} Submit
+                        </button>
+                    </div>
+                {% endbuttons %}
+            </form>
+            <br/>
+            <div id="result_form_1"></div>
+            <br/><br/>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_script %}
+    <script src="{% static 'script.js' %}"></script>
+{% endblock %}
